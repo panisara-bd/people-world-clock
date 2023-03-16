@@ -9,3 +9,5 @@ db.createUser({
     },
   ],
 });
+
+db.getSiblingDB("greeting_clock").users.createIndex( {username: 1}, {unique: 2})
