@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { listPeople, findUser } from '../../db';
+import { findUser, deletePerson } from '../../db';
 
-export const listPeopleRoute = async (req: Request, res: Response) => {
+export const deletePersonRoute = async (req: Request, res: Response) => {
   const authorization = req.headers.authorization?.replace('Bearer ', '');
   if (!authorization) {
     return res.status(401).json({ message: 'You need to be authenticated' });
@@ -12,6 +12,14 @@ export const listPeopleRoute = async (req: Request, res: Response) => {
     return res.status(401).json({ message: 'You need to be authenticated' });
   }
 
-  const people = await listPeople(username);
-  return res.status(200).json(people);
+  const id = req.params.id;
+  try {
+    await deletePerson(username, id);
+    res.sendStatus(204);
+  } catch (e) {
+    if (e instanceof Error && e.name === 'BSONError') {
+      return res.status(400).json({ message: 'Invalid person id' });
+    }
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
 };

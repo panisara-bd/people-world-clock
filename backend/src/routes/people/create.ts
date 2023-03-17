@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import { createPerson, findUser } from '../../db';
 
-const ALLOWED_ICONS = ['x', 'y'];
-
 export const createPersonRoute = async (req: Request, res: Response) => {
   const authorization = req.headers.authorization?.replace('Bearer ', '');
   if (!authorization) {
@@ -14,26 +12,30 @@ export const createPersonRoute = async (req: Request, res: Response) => {
     return res.status(401).json({ message: 'You need to be authenticated' });
   }
 
-  const { name, lat, long, icon } = req.body;
+  const { name, city, country, timeZoneId } = req.body;
   if (
     !name ||
-    !lat ||
-    !long ||
-    !icon ||
+    !city ||
+    !country ||
+    !timeZoneId ||
     typeof name !== 'string' ||
-    typeof lat !== 'string' ||
-    typeof long !== 'string' ||
-    !ALLOWED_ICONS.includes(icon)
+    typeof city !== 'string' ||
+    typeof country !== 'string' ||
+    typeof timeZoneId !== 'string'
   ) {
     return res
       .status(400)
-      .json({ message: 'name, lat, long and icon strings are required' });
+      .json({
+        message: 'name, city, country, and timeZoneId strings are required',
+      });
   }
 
-  try {
-    const person = await createPerson({ username, name, lat, long, icon });
-    res.sendStatus(201).json(person);
-  } catch (e) {
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
+  const person = await createPerson({
+    username,
+    name,
+    city,
+    country,
+    timeZoneId,
+  });
+  res.status(201).json(person);
 };

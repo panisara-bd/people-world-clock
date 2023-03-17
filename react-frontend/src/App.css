@@ -1,0 +1,178 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    background-color: #5aa7ff;
+    padding-bottom: 30px;
+}
+
+.login-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+h2 {
+    margin: 10px 0 0 0;
+}
+
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 30px;
+    width: 80%;
+}
+
+
+.signUp-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-top: #000 solid 2px;
+    padding-top: 30px;
+    width: 80%;
+}
+
+.login-signup__button {
+    margin-top: 30px;
+    width: 93%;
+}
+
+.text-error {
+    color:#c32700;
+    font-weight: 600;
+    text-align: center;
+    font-size: 12px;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.app__log-out {
+    position:absolute;
+    right: 80px;
+    top: 50px;
+}
+
+.app__greeting {
+    font-size: 36px;
+    font-weight: 800;
+    text-align: center;
+    flex:1 0 auto;
+}
+
+.add-person__form {
+    display: flex;
+    margin: 10px;
+    align-items: center
+}
+
+label {
+    margin-inline: 5px;
+    font-weight: 550;
+}
+
+input {
+    margin-inline: 5px;
+    height: 30px;
+    border-radius: 7px;
+    border: #000 solid 2px;
+    padding-inline: 8px;
+    width: 280px;
+    font-weight: 550;
+}
+
+.add-person__err-message {
+    color:#c32700;;
+    font-weight: 600;
+    text-align: center;
+}
+
+button {
+    background-color: #ffe564;
+    padding: 10px 20px;
+    margin-inline: 5px;
+    border: #000 solid 2px;
+    outline: 0;
+    border-radius: 10px;
+    font-weight: 550;
+}
+
+.card-gallery {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.card {
+    display: block;
+    position: relative;
+    width: 200px;
+    padding: 10px 20px;
+    border: 3px solid #000;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.card__delete {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: #f0761e;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 16px;
+    font-weight: 800;
+    border: 3px solid black;
+}
+
+.card__name {
+    margin-bottom: 150px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.card__location {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card__time {
+    font-weight: 700;
+    text-align: right;
+    font-size: 26px;
+}
+
+.card--morning {
+    background: rgb(255, 154, 111);
+    background: linear-gradient(0deg, rgb(255, 177, 74) 0%, rgba(224,211,171,1) 30%, rgba(172,211,241,1) 48%, rgb(105, 197, 255) 100%);
+}
+
+.card--afternoon {
+    background: rgb(172,218,241);
+    background: linear-gradient(0deg, rgb(123, 211, 255) 5%, rgba(255,231,156,1) 59%, rgb(255, 205, 104) 100%);
+}
+
+.card--evening {
+    background: rgb(255,129,106);
+    background: linear-gradient(0deg, rgb(210, 79, 112) 5%, rgb(67, 134, 242) 100%);
+}
+
+.card--night {
+    background: rgb(34,74,164);
+    background: linear-gradient(0deg, rgb(45, 89, 191) 0%, rgb(87, 129, 227) 50%, rgb(103, 175, 242) 100%);
+}
