@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react';
 import useToken from '../context/useToken';
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL, API_KEY } from '../config';
 
 type LocationInfo = {
   city: string;
@@ -16,8 +16,6 @@ type LocationInfo = {
 type Props = {
   fetchPeople: () => void;
 };
-
-const API_KEY = 'AIzaSyCGpjQv65CpUDCTKr0o7wXXGPthHtSLCsg';
 
 const AddPerson: React.FC<Props> = ({ fetchPeople }) => {
   const [name, setName] = useState('');

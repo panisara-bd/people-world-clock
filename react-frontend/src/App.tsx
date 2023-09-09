@@ -6,13 +6,14 @@ import Login from './components/LogIn';
 import SignUp from './components/SignUp';
 import useToken from './context/useToken';
 import { PersonType } from './types';
+import { API_BASE_URL } from './config';
 
 function App() {
   const { token, setToken, clearToken } = useToken();
   const [people, setPeople] = useState<PersonType[]>([]);
 
   const fetchPeople = () =>
-    fetch('http://localhost:8080/people', {
+    fetch(`${API_BASE_URL}/people`, {
       headers: {
         'content-type': 'application/json',
         authorization: `Bearer ${token}`,
