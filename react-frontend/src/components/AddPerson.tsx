@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react';
 import useToken from '../context/useToken';
+import { API_BASE_URL } from '../config';
 
 type LocationInfo = {
   city: string;
@@ -16,7 +17,7 @@ type Props = {
   fetchPeople: () => void;
 };
 
-const API_KEY = 'API_KEY';
+const API_KEY = 'AIzaSyCGpjQv65CpUDCTKr0o7wXXGPthHtSLCsg';
 
 const AddPerson: React.FC<Props> = ({ fetchPeople }) => {
   const [name, setName] = useState('');
@@ -65,7 +66,7 @@ const AddPerson: React.FC<Props> = ({ fetchPeople }) => {
     }
 
     try {
-      const res = await fetch('http://localhost:8080/people', {
+      const res = await fetch(`${API_BASE_URL}/people`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

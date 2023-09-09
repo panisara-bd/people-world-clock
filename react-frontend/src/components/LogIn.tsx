@@ -1,8 +1,9 @@
 import React, { FormEvent, useState } from 'react';
 import { UserType } from '../types';
+import { API_BASE_URL } from '../config';
 
 const logInUser = async (credentials: UserType) => {
-  const response = await fetch('http://localhost:8080/auth/log-in', {
+  const response = await fetch(`${API_BASE_URL}/auth/log-in`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

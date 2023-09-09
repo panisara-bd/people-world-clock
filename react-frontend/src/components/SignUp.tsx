@@ -1,8 +1,9 @@
 import React, { FormEvent, useState } from 'react';
 import { UserType } from '../types';
+import { API_BASE_URL } from '../config';
 
 const signUpUser = async (user: UserType) => {
-  const response = await fetch('http://localhost:8080/auth/sign-up', {
+  const response = await fetch(`${API_BASE_URL}/auth/sign-up`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

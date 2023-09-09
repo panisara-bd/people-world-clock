@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useToken from '../context/useToken';
 import { PersonType } from '../types';
+import { API_BASE_URL } from '../config';
 
 type Props = {
   person: PersonType;
@@ -24,7 +25,7 @@ const Card: React.FC<Props> = ({ person, fetchPeople }) => {
   }, []);
 
   const deletePerson = async () => {
-    await fetch(`http://localhost:8080/people/${person._id}`, {
+    await fetch(`${API_BASE_URL}/people/${person._id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
