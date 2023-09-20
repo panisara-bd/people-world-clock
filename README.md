@@ -12,6 +12,9 @@ The application is built with TypeScript using React for the frontend, Express J
 
 ![Screenshot](./screenshot.png)
 
+## react-frontend vs vue-frontend
+The project has 2 identical frontends, one implemented with React and one with Vue.
+
 ## Requirements
 To run this application locally you need **Docker** and **Node.js**.
 
@@ -21,11 +24,11 @@ To run the application, follow these steps:
 1. Clone the repository: git clone https://github.com/{yourusername}/people-world-clock.git
 1. Replace the API_KEY with your Google Maps API key (read more in the APIs section)
 1. Install dependencies in backend directory: `npm install`
-1. Install dependencies in react-frontend directory: `npm install`
+1. Install dependencies in react-frontend or vue-frontend directory: `npm install`
 1. Start the local database by running `npm run docker` inside the backend directory
 1. Start the backend server by running `npm run dev` in the backend directory
-1. Start the frontend by running `npm run start` in the react-frontend directory
-1. Open the application in your browser at http://localhost:3000
+1. Start the frontend by running `npm run start` in the react-frontend directory or `npm run dev` in the vue-frontend directory
+1. Open the application in your browser at http://localhost:3000 for react-frontend or http://localhost:5173 for vue-frontend
 
 To reset the database run `docker compose down --volumes` in the backend diretory.
 
@@ -44,6 +47,7 @@ in order to use them. More information about how you can request the API key:
 ## Technologies Used
 - TypeScript
 - React
+- Vue
 - Express JS
 - MongoDB
 - Docker
